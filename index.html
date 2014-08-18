@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>שתי שבתות</title>
+    <script src="hebcal.noloc.min.js"></script>
+    <script>
+        function load() {
+            Hebcal.defaultCity = 'Jerusalem'
+            hayom = new Hebcal.HDate()
+            purim_hashana = new Hebcal.HDate( 14, Hebcal.HDate( hayom.year ).isLeapYear()? 13 : 12, hayom.year )
+            if( purim_hashana.abs() > hayom.abs() )
+                purim_haba = purim_hashana
+            else
+                purim_haba = new Hebcal.HDate( 14, Hebcal.HDate( hayom.year + 1 ).isLeapYear()? 13 : 12, hayom.year + 1 )
+            days0 = purim_haba.abs() - hayom.abs()
+            days1 = days0 + 1
+            if( days1 > 1 )
+                message = 'עוד ' + days0 + ' יום לפורים דפרזות ו- ' + days1 + ' יום לפורים דמוקפות'
+            else
+                message = 'פורים שמח!'
+            document.getElementById( 'hyom' ). innerHTML = 'היום ' + hayom.toString( 'h' )
+            document.getElementById( 'message' ). innerHTML = message
+        }
+    </script>
+    <style>
+        body {
+            font-family: david;
+            padding-right: 10%;
+            padding-left: 10%;
+            padding-top: 2%;
+            text-align: center;
+            font-size: large;
+            background: url( bkgd.png )
+        }
+        small {
+            font-family: arial;
+            padding: 0
+        }
+    </style>
+</head>
+<body dir="rtl" onload="load()">
+    בס"ד
+    <h2>שתי שבתות</h2>
+    <div id="hyom"></div>
+    <h1 id="message"></h1>
+    קראנו לאתר זה "שתי שבתות" שכן מצינו בגמרא "שואלין ודורשין בהלכות הפסח קודם הפסח שלשים יום ר' שמעון בן גמליאל אומר שתי שבתות
+    " <small>(פסחים ו' ע"א)</small> ונראה לעניות דעתנו דקרא רשב"ג לשני ימי פורים שתי שבתות, שהרי נאמר על פורים "כימים אשר נחו בהם היהודים" <small>(אסתר ט' כ"ב)</small>.
+    <p/>
+    ולפי זה דברי הגמרא "אלמלי משמרין ישראל שתי שבתות כהלכתן מיד נגאלים" <small>(שבת, קי"ח ע"ב)</small> קאי אף על הציפיה לפורים כדפירש"י "ואביו שמר את הדבר, היה ממתין ומצפה מתי יבוא" <small>(בראשית ל"ז י"א)</small>.
+    <p/>
+    אנו משתמשים בדף זה כדף הבית שלנו על מנת לשמור ולצפות מידי יום לפורים הקרוב הבעל"ט וממליצים גם לכם ובע"ה נזכה לשמוח בגאולתנו השלמה, וחלילה לא נבוש ולא נכלם כאשר ישאלונו "ציפית לישועה"! 
+    <p/>
+    להערות והצעות לשיפור ניתן לפנות אלינו בכתובת info<script>document.write("@");</script>2-s.info
+    <p/>
+    ויהי רצון שנזכה לראות את מרדכי ואסתר בקריאת המגילה!
+    <p/>
+    <img src="div.png"/>
+</body>
+</html>
